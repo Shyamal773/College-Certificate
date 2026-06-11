@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farewell Certificate — Bhuragaon College</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f4f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    h1 { font-size: 1.4rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem; text-align: center; }
+    .controls {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    label { font-size: 14px; font-weight: 500; color: #333; }
+    input[type="text"] {
+      width: 100%;
+      font-size: 18px;
+      padding: 10px 14px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #111;
+      outline: none;
+    }
+    input[type="text"]:focus { border-color: #555; }
+    input[type="text"]::placeholder { text-transform: none; letter-spacing: 0; color: #aaa; font-size: 15px; }
+    .hint { font-size: 13px; color: #888; }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    button {
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 1.5px solid #bbb;
+      background: #fff;
+      color: #222;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    button:hover { background: #f0f0f0; }
+    button.primary { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    button.primary:hover { background: #333; }
+    .preview-label { font-size: 13px; color: #666; margin-bottom: 6px; }
+    .cert-wrap { width: 100%; max-width: 860px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); border-radius: 4px; overflow: hidden; background: #fff; }
+    canvas { display: block; width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+
+  <h1>Farewell Certificate — Bhuragaon College</h1>
+
+  <div class="controls">
+    <label for="nameInput">Student Name</label>
+    <input type="text" id="nameInput" placeholder="Type student name here..." maxlength="60" autocomplete="off" />
+    <p class="hint">&#9432; Name will appear in capital letters on the certificate</p>
+    <div class="btn-row">
+      <button onclick="renderCert()">&#128065; Preview</button>
+      <button class="primary" onclick="downloadCert()">&#11015; Download Certificate</button>
+    </div>
+  </div>
+
+  <p class="preview-label">Preview:</p>
+  <div class="cert-wrap">
+    <canvas id="cert-canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
